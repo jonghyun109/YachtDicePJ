@@ -10,6 +10,7 @@ namespace YachtDice
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("fd");
         }
     }
 }
