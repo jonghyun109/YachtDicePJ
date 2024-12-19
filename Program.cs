@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace YachtDice
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("fd");
+            IntroScreen introscreen = new IntroScreen();
+            Console.WriteLine("Asfasdfasdfsdf");
         }
     }
 }
