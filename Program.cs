@@ -15,6 +15,7 @@ namespace YachtDice
             IntroScreen introscreen = new IntroScreen();
 
             introscreen.ShowIntroScreen();
+            //dice.DDDDDDice();
         }
     }
 }
