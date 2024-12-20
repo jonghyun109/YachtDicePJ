@@ -9,9 +9,12 @@ namespace YachtDice
     class Program
     {
         static void Main(string[] args)
-        {
+        {            
+            Dice dice = new Dice();
+            EndScreen endScreen = new EndScreen();
             IntroScreen introscreen = new IntroScreen();
-            Console.WriteLine("Asfasdfasdfsdf");
+
+            introscreen.ShowIntroScreen();
         }
     }
 }
