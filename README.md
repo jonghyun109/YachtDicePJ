@@ -52,3 +52,4 @@ Dice 클래스를 IntroScreen과 EndGameScreen을 제외한 모든곳에 상속�
 9. 12턴이 끝난후 합계한 점수를 비교 후 false로 반환하여 if false 면 endscreen 출력
 10. endscreen에서 승리,패배 출력과 press any Key 출력 후 introscreen으로 다시 넘어감
 11. 나머지 코드들 작성 후 추가된거 입력하겠습니다
+
