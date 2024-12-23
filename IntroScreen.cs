@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 
 namespace YachtDice
@@ -11,7 +12,8 @@ namespace YachtDice
     class IntroScreen
     {
         public void ShowIntroScreen()
-        {
+        {            
+            ScoreBoard scoreBoard = new ScoreBoard();
             InGameScreen inGameScreen = new InGameScreen();
             Description description = new Description();
             Console.Clear();
@@ -29,6 +31,7 @@ namespace YachtDice
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
                     inGameScreen.ShowInGameScreen();
+                    
                     break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
@@ -50,7 +53,15 @@ namespace YachtDice
         Dice dice = new Dice();
         public void ShowInGameScreen()
         {
-            dice.StartGame();
+            for(int i=1;i<12;i++)
+            {
+                Console.Clear();
+                Console.SetCursorPosition(33, 12);
+                Console.WriteLine($"{i} 라운드");
+                Thread.Sleep(1000);
+                dice.StartGame();
+                
+            }            
             Console.WriteLine("");
         }
 

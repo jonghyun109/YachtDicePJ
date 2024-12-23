@@ -10,22 +10,29 @@ namespace YachtDice
 {
     class Dice
     {
-        ScoreBoard scoreboard = new ScoreBoard();
-        int[] dices = new int[5];
+        ScoreBoard scoreboard;
+        public int[] dices = new int[5];
         bool[] isdiceRoll = new bool[5];
         Random shuffleDice = new Random();
         int rollCount = 0;
+        int currentSelet = 0;
 
+        
         public Dice()
         {
             for (int i = 0; i < 5; i++)
             {
                 dices[i] = shuffleDice.Next(1, 7);
-                isdiceRoll[i] = true;
+                isdiceRoll[i] = true;                
             }
-        }
+            
+        }       
         public void StartGame()
         {
+            for(int i=0; i<isdiceRoll.Length;i++)
+            {
+                isdiceRoll[i] = true;
+            }         
             Console.Clear();
             for (int i = 0; i < 5; i++)
             {
@@ -36,6 +43,7 @@ namespace YachtDice
 
             while (true)
             {
+                rollCount = 0;
                 var input = Console.ReadKey(true);
                 if (input.Key == ConsoleKey.Spacebar)
                 {
@@ -53,6 +61,7 @@ namespace YachtDice
                 if (isdiceRoll[i])
                 {
                     Console.ForegroundColor = ConsoleColor.White;
+                    
                 }
                 else
                 {
@@ -60,6 +69,7 @@ namespace YachtDice
                 }
                 Console.Write(dices[i] + " ");
                 Console.ResetColor();
+                
             }
             Console.WriteLine();
         }
@@ -105,7 +115,9 @@ namespace YachtDice
 
                 StopDice();
                 Console.WriteLine($"\n다시 굴리기 : SpaceBar\n멈출 주사위 선택 : Enter (남은 횟수: {3 - rollCount})");
+                scoreboard = new ScoreBoard();
                 scoreboard.InGameDisplayBoard();
+                scoreboard.CompareDices(dices);
 
                 while (true)
                 {
@@ -122,7 +134,7 @@ namespace YachtDice
                             break;
                         }
                     }
-                }
+                }                
             }
             Console.Clear();
             Console.WriteLine("굴리기 횟수를 모두 사용했습니다.");
@@ -131,13 +143,13 @@ namespace YachtDice
 
         public void ChooseDice()
         {
-            int currentSelet = 0;
-
+            
+            
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("주사위를 선택하세요 \n이동 : ← →  \n선택/해제 : SpaceBar  \n완료 후 다시 굴리기 : Enter ");
-
+                
                 for (int i = 0; i < 5; i++)
                 {
                     // 선택된 주사위는 회색 배경으로 강조 표시
@@ -158,10 +170,23 @@ namespace YachtDice
                 }
 
                 var input = Console.ReadKey(true);
-                if (input.Key == ConsoleKey.Enter) break;
-                else if (input.Key == ConsoleKey.LeftArrow) currentSelet = (currentSelet + 4) % 5;//바로 왼쪽가면 값 4로 맨오른쪽
-                else if (input.Key == ConsoleKey.RightArrow) currentSelet = (currentSelet + 1) % 5;//
-                else if (input.Key == ConsoleKey.Spacebar) isdiceRoll[currentSelet] = !isdiceRoll[currentSelet];
+
+                if (input.Key == ConsoleKey.Enter)
+                { break; }
+
+                else if (input.Key == ConsoleKey.LeftArrow)
+                {
+                    currentSelet = (currentSelet + 4) % 5;
+                }
+                else if (input.Key == ConsoleKey.RightArrow)
+                {
+                    currentSelet = (currentSelet + 1) % 5;
+                }
+                else if (input.Key == ConsoleKey.Spacebar)
+                {
+                    isdiceRoll[currentSelet] = !isdiceRoll[currentSelet];
+                }
+                
             }
         }
     }
