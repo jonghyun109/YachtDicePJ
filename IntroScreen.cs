@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace YachtDice
 {
@@ -12,11 +14,11 @@ namespace YachtDice
         {
             InGameScreen inGameScreen = new InGameScreen();
             Description description = new Description();
-            Console.Clear(); 
+            Console.Clear();
             Console.WriteLine("=====================================");
             Console.WriteLine("         요트 다이스 게임");
             Console.WriteLine("=====================================");
-            Console.WriteLine("           1. 게임 시작"); 
+            Console.WriteLine("           1. 게임 시작");
             Console.WriteLine("           2. 게임 설명");
             Console.WriteLine("           3. 종료");
             Console.WriteLine("=====================================");
@@ -37,6 +39,7 @@ namespace YachtDice
                     break;
                 default:
                     Console.WriteLine("잘못된 입력입니다. 다시 시도하세요.");
+                    Thread.Sleep(300);
                     ShowIntroScreen();
                     break;
             }
@@ -47,16 +50,17 @@ namespace YachtDice
         Dice dice = new Dice();
         public void ShowInGameScreen()
         {
-            dice.JustDice();
+            dice.StartGame();
+            Console.WriteLine("");
         }
-        
+
     }
     class Description
     {
         public void ShowDescription()
         {
             IntroScreen introScreen = new IntroScreen();
-            Console.Clear ();
+            Console.Clear();
             Console.WriteLine("=====================================");
             Console.WriteLine("       요트 다이스 게임 설명:");
             Console.WriteLine("=====================================");
@@ -66,7 +70,7 @@ namespace YachtDice
             Console.WriteLine("각 라운드마다 플레이어는 주사위를 최대 세 번까지 굴릴 수 있습니다.");
             Console.WriteLine("주사위는 SpaceBar를 눌러 굴리고 SpaceBar를 다시 쓰면 멈춥니다.");
             Console.WriteLine("\n아무 키나 눌러 인트로 화면으로 돌아가기..");
-            Console.ReadKey();            
+            Console.ReadKey();
             introScreen.ShowIntroScreen();
         }
     }
@@ -75,7 +79,7 @@ namespace YachtDice
         IntroScreen introScreen = new IntroScreen();
         bool isWin = true;
         public void ShowEndScreen()
-        {            
+        {
             if (isWin)
             {
                 Console.WriteLine("축하합니다! 승리했습니다!");
@@ -90,5 +94,5 @@ namespace YachtDice
         }
 
     }
-    
+
 }
