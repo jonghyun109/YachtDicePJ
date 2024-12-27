@@ -8,6 +8,8 @@
 주사위를 최대 세 번까지 던져서 맞는 족보를 만든 후 점수를 얻어내는 게 목표다.
 애초에 기록 가능한 점수를 보여주기 때문에 뭐가 몇 점이고 하는 걸 일일이 외울 필요 없이 그냥 점수판에 맞춰 넣으면 된다.
 
+
+
 ![image](https://github.com/user-attachments/assets/c18a7de5-a99b-4ad8-9429-fd2961c5c7ec)
 
 https://www.youtube.com/watch?v=HidpDk1ML5E&list=PLrTC7IMrpfqIqjyPh7YA_iYu5e98y_ufr
