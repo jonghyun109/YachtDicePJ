@@ -11,10 +11,15 @@ namespace YachtDice
     {
         static void Main(string[] args)
         {
-            //Dice dice = new Dice();
-            //EndScreen endScreen = new EndScreen();
-            IntroScreen introscreen = new IntroScreen();            
-          
+            Dice dice = new Dice();            
+            IntroScreen introscreen = new IntroScreen();
+            ScoreBoard scoreboard = new ScoreBoard();
+            //int[] ints = new int[] { 3,4,3,4,6};
+
+            //dice.SetPointInBoard(scoreboard);
+            //scoreboard.SetScoreBoard();
+
+            //scoreboard.CompareDices(ints);
             introscreen.ShowIntroScreen();
             //scoreboard.SetScoreBoard();
             //dice.DDDDDDice();

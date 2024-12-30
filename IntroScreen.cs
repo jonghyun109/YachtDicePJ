@@ -12,30 +12,46 @@ namespace YachtDice
     class IntroScreen
     {
         public void ShowIntroScreen()
-        {            
-            ScoreBoard scoreBoard = new ScoreBoard();
-            InGameScreen inGameScreen = new InGameScreen();
-            Description description = new Description();
+        {
+            GameManager playGame = new GameManager();
+            Console.CursorVisible = false;
+
             Console.Clear();
-            Console.WriteLine("=====================================");
-            Console.WriteLine("         요트 다이스 게임");
-            Console.WriteLine("=====================================");
-            Console.WriteLine("           1. 게임 시작");
-            Console.WriteLine("           2. 게임 설명");
-            Console.WriteLine("           3. 종료");
-            Console.WriteLine("=====================================");
-            Console.Write("선택: ");
+
+
+            Console.WindowHeight = 40;
+            Console.WindowWidth = 100;
+
+            int windowWidth = Console.WindowWidth;
+
+
+            SetCursorCenter(" ##  ##                                                ####                              ", windowWidth);
+            SetCursorCenter(" ##  ##                     ##         ##              ## ##      ##                     ", windowWidth);
+            SetCursorCenter(" ##  ##    ####     ####    ##       ######            ##  ##             ####     ####  ", windowWidth);
+            SetCursorCenter("  ####        ##   ##       #####      ##              ##  ##    ###     ##       ##  ## ", windowWidth);
+            SetCursorCenter("   ##      #####   ##       ##  ##     ##              ##  ##     ##     ##       ###### ", windowWidth);
+            SetCursorCenter("   ##     ##  ##   ##       ##  ##     ##              ## ##      ##     ##       ##     ", windowWidth);
+            SetCursorCenter("   ##      #####    ####    ##  ##      ###            ####      ####     ####     ####  ", windowWidth);
+
+            Console.WriteLine("\n\n\n\n\n\n\n");
+
+            SetCursorCenter("==========================================================================================\n", windowWidth);
+            SetCursorCenter(" 1. 게임 시작", windowWidth - 5);
+            SetCursorCenter(" 2. 게임 설명", windowWidth - 5);
+            SetCursorCenter(" 3. 종료\n", windowWidth - 5);
+            SetCursorCenter("==========================================================================================", windowWidth);
+
             ConsoleKeyInfo inputKey = Console.ReadKey();
             switch (inputKey.Key)
             {
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
-                    inGameScreen.ShowInGameScreen();
-                    
+                    playGame.StartGame();
+
                     break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
-                    description.ShowDescription();
+                    ShowDescription();
                     break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
@@ -47,63 +63,30 @@ namespace YachtDice
                     break;
             }
         }
-    }
-    class InGameScreen
-    {
-        Dice dice = new Dice();
-        public void ShowInGameScreen()
-        {
-            for(int i=1;i<12;i++)
-            {
-                Console.Clear();
-                Console.SetCursorPosition(33, 12);
-                Console.WriteLine($"{i} 라운드");
-                Thread.Sleep(1000);
-                dice.StartGame();
-                
-            }            
-            Console.WriteLine("");
-        }
-
-    }
-    class Description
-    {
         public void ShowDescription()
         {
-            IntroScreen introScreen = new IntroScreen();
+            int windowWidth = Console.WindowWidth;
             Console.Clear();
-            Console.WriteLine("=====================================");
-            Console.WriteLine("       요트 다이스 게임 설명:");
-            Console.WriteLine("=====================================");
-            Console.WriteLine("요트 다이스는 주사위를 사용하여 점수를 기록하는 게임입니다.");
-            Console.WriteLine("각 플레이어는 주사위를 굴려 특정 조합을 만들어 점수를 얻습니다.");
-            Console.WriteLine("게임은 총 12라운드로 진행 됩니다");
-            Console.WriteLine("각 라운드마다 플레이어는 주사위를 최대 세 번까지 굴릴 수 있습니다.");
-            Console.WriteLine("주사위는 SpaceBar를 눌러 굴리고 SpaceBar를 다시 쓰면 멈춥니다.");
-            Console.WriteLine("\n아무 키나 눌러 인트로 화면으로 돌아가기..");
+            SetCursorCenter("==========================================================================================\n", windowWidth);
+            SetCursorCenter("       요트 다이스 게임 설명:\n", windowWidth - 15);
+            SetCursorCenter("==========================================================================================\n", windowWidth);
+            SetCursorCenter("요트 다이스는 주사위를 사용하여 점수를 기록하는 게임입니다.", windowWidth - 20);
+            SetCursorCenter("각 플레이어는 주사위를 굴려 특정 조합을 만들어 점수를 얻습니다.", windowWidth - 18);
+            SetCursorCenter("게임은 총 12라운드로 진행 됩니다 ", windowWidth - 34);
+            SetCursorCenter("각 라운드마다 플레이어는 주사위를 최대 세 번까지 굴릴 수 있습니다.", windowWidth - 15);
+            SetCursorCenter("각라운드의 종료는 점수판에 입력한 순간입니다. ", windowWidth - 27);
+            SetCursorCenter("주사위가 3번이 구르거나 그전에 점수판에 입력을 하면 다음라운드로 넘어갑니다", windowWidth - 12);
+            SetCursorCenter("12개의 점수판을 모두 채울시 점수판의 합이 게임결과로 나타납니다", windowWidth - 18);
+            Console.WriteLine("\n\n");
+            SetCursorCenter("아무 키나 눌러 인트로 화면으로 돌아가기..", windowWidth - 20);
             Console.ReadKey();
-            introScreen.ShowIntroScreen();
+            ShowIntroScreen();
         }
-    }
-    class EndScreen
-    {
-        IntroScreen introScreen = new IntroScreen();
-        bool isWin = true;
-        public void ShowEndScreen()
+        static void SetCursorCenter(string text, int windowWidth)
         {
-            if (isWin)
-            {
-                Console.WriteLine("축하합니다! 승리했습니다!");
-            }
-            else
-            {
-                Console.WriteLine("패배했습니다..");
-            }
-            Console.WriteLine("아무 키나 눌러 인트로 화면으로 돌아가기..");
-            Console.ReadKey();
-            introScreen.ShowIntroScreen();
+
+            Console.SetCursorPosition((windowWidth - text.Length) / 2, Console.CursorTop);
+            Console.WriteLine(text);
         }
-
     }
-
 }
