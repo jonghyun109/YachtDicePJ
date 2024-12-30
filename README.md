@@ -14,6 +14,10 @@
 
 https://www.youtube.com/watch?v=HidpDk1ML5E&list=PLrTC7IMrpfqIqjyPh7YA_iYu5e98y_ufr
 
+PPT
+
+https://www.canva.com/design/DAGap8Bb7Xs/sTcTI1FiTkjlYGP3I5DsxA/view?utm_content=DAGap8Bb7Xs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4a34629ed3
+
 ## 기능 목록
 1. 게임 시작/종료(12라운드)
 2. 주사위 세팅 (배열로 설정)
