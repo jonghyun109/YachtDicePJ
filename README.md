@@ -14,7 +14,7 @@
 
 https://www.youtube.com/watch?v=HidpDk1ML5E&list=PLrTC7IMrpfqIqjyPh7YA_iYu5e98y_ufr
 
-PPT
+발표 PPT
 
 https://www.canva.com/design/DAGap8Bb7Xs/sTcTI1FiTkjlYGP3I5DsxA/view?utm_content=DAGap8Bb7Xs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4a34629ed3
 
