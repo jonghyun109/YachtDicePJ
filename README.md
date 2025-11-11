@@ -1,6 +1,6 @@
 # Yacht_Dice_C#모작
 ## 프로젝트 설명
-요트다이스/야추다이스/야찌다이스 
+요트다이스/야추다이스
 (나무위키)  https://namu.wiki/w/%EC%9A%94%ED%8A%B8(%EC%A3%BC%EC%82%AC%EC%9C%84)
 ![image](https://github.com/user-attachments/assets/1dc780e7-544b-4773-aa05-03122fc81675)
 
